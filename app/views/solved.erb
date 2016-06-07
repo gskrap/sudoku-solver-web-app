@@ -1,6 +1,6 @@
-<h1> Click a Blank Square to Reveal</h1>
+<h3> Click a Blank Square to Reveal</h3>
 
-<table>
+<table class='center'>
   <% i = 0 %>
   <% 9.times do %>
   <tr>
@@ -11,12 +11,13 @@
       <% else %>
       class='solved_cell'
       <% end %>
-      ><%= @board.squares.shift[0] %></td>
+      ><%= @board.squares.shift %></td>
     <% i += 1 %>
     <% end %>
   </tr>
   <% end %>
 </table>
 
-<button id='solution-btn'>Full Solution</button>
+<button id='show-solution-btn'>Show Solution</button>
+<button id='hide-solution-btn'>Hide Solution</button>
 <button id='home-btn'>Home</button>

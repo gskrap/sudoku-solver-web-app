@@ -5,8 +5,8 @@ get '/' do
 end
 
 post '/' do
-  @board = Board.new(params).solve
-  if @board.solved?
+  @board = Board.new(params)
+  if @board.solve
     erb :solved
   else
     erb :no_solution
