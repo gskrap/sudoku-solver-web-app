@@ -66,7 +66,7 @@ code {
     overflow: auto;
 }
 
-.input-cell {
+.input-cell, .solved_cell {
     width: 32px;
     height: 32px;
     text-align: center;
