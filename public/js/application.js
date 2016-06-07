@@ -3,11 +3,19 @@ $(document).ready(function() {
     this.style.color = 'gray';
   });
 
-  $('#solution-btn').on('click', function(){
+  $('#show-solution-btn').on('click', function(){
     var solved_cells = document.getElementsByClassName('solved_cell');
     var i;
     for (i = 0; i < solved_cells.length; i++) {
     solved_cells[i].style.color = 'gray';
+    }
+  });
+
+  $('#hide-solution-btn').on('click', function(){
+    var solved_cells = document.getElementsByClassName('solved_cell');
+    var i;
+    for (i = 0; i < solved_cells.length; i++) {
+    solved_cells[i].style.color = 'transparent';
     }
   });
 
