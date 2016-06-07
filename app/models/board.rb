@@ -5,73 +5,63 @@ class Board
     @squares = []
     @indexes_of_givens = []
     args.each do |idx, value|
+      @squares << value.to_i
       if value.to_i != 0
-        @squares << [value.to_i]
         @indexes_of_givens << idx.to_i
-      else
-        @squares << [1,2,3,4,5,6,7,8,9]
       end
     end
   end
 
-  def solved?()
-    return false unless self.squares
-    self.squares.each do |possibilities|
-      if possibilities == nil || possibilities.length != 1
-        return false
-      # elsif board.flatten.inject(0) {|sum,x| sum + x} != 405
-      #   return false
-      end
-    end
-    true
-  end
-
-  def solve()
-    10.times do
-      self.squares = eliminate_row()
-      self.squares = flip_row_column()
-      self.squares = eliminate_row()
-      self.squares = flip_row_column()
-      self.squares = box_unbox()
-      self.squares = eliminate_row()
-      self.squares = box_unbox()
-    end
-    self
-  end
-
-  def eliminate_row()
-    rows = self.squares.each_slice(9).to_a
-    rows.map! do |row|
-      i = 0
-      until i == row.length
-        x = 0
-        until x == row.length
-          if row[i].length > 1 && row[x].length == 1
-            row[i] -= row[x]
-          end
-          x += 1
+  def solve
+    self.squares.length.times do |i|
+      next if self.squares[i] != 0
+      possible_values = find_posssible_values(i)
+      possible_values.each do |x|
+        self.squares[i] = x
+        if solve
+          return true
         end
-        i += 1
       end
-      row
+      self.squares[i] = 0
+      return false
     end
-    rows.flatten(1)
+    return true
   end
 
-  def flip_row_column()
-    self.squares.each_slice(9).to_a.transpose.flatten(1)
-  end
 
-  def box_unbox()
-    rowed_board = self.squares.each_slice(9).to_a
+  def find_value_row_column(i)
     result = []
-    i = 0
-    until i == rowed_board.length
-      result << rowed_board[i][0..2] + rowed_board[i + 1][0..2] + rowed_board[i + 2][0..2]
-      result << rowed_board[i][3..5] + rowed_board[i + 1][3..5] + rowed_board[i + 2][3..5]
-      result << rowed_board[i][6..8] + rowed_board[i + 1][6..8] + rowed_board[i + 2][6..8]
-      i += 3
+    row, column = i / 9 * 9, i % 9
+    9.times do |x|
+      in_row = self.squares[row + x]
+      result << in_row if in_row
+      in_column = self.squares[x * 9 + column]
+      result << in_column if in_column
     end
-    return result.flatten(1)
+    result.uniq
+  end
+
+  def find_in_square(i)
+    result = []
+    sq_row = i / 27 * 3
+    sq_column = i % 9 / 3 * 3
+    3.times do |x|
+      3.times do |y|
+        in_sqr = self.squares[(sq_row + x) * 9 + sq_column + y]
+        result << in_sqr if in_sqr
+      end
+    end
+    result.uniq
+  end
+
+  def find_posssible_values(i)
+    possible_values = (1..9).to_a
+    possible_values -= find_value_row_column(i)
+    possible_values -= find_in_square(i)
+    return possible_values
+  end
+
+  def solved?
+    self.solve
   end
 end
