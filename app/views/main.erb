@@ -1,103 +1,13 @@
 <h1>Enter Your Sudoku Puzzle:</h1>
 <form id='puzzle-input' action='/' method='post'>
-  <div id="row-1">
-    <input class='input-cell' name='0' type='text' maxlength='1'>
-    <input class='input-cell' name='1' type='text' maxlength='1'>
-    <input class='input-cell' name='2' type='text' maxlength='1'>
-    <input class='input-cell' name='3' type='text' maxlength='1'>
-    <input class='input-cell' name='4' type='text' maxlength='1'>
-    <input class='input-cell' name='5' type='text' maxlength='1'>
-    <input class='input-cell' name='6' type='text' maxlength='1'>
-    <input class='input-cell' name='7' type='text' maxlength='1'>
-    <input class='input-cell' name='8' type='text' maxlength='1'>
+  <% i = 0 %>
+  <% 9.times do %>
+  <div>
+    <% 9.times do %>
+    <input class='input-cell' name='<%= i %>' type='text' maxlength='1'>
+    <% i += 1 %>
+    <% end %>
   </div>
-  <div id="row-2">
-    <input class='input-cell' name='9' type='text' maxlength='1'>
-    <input class='input-cell' name='10' type='text' maxlength='1'>
-    <input class='input-cell' name='11' type='text' maxlength='1'>
-    <input class='input-cell' name='12' type='text' maxlength='1'>
-    <input class='input-cell' name='13' type='text' maxlength='1'>
-    <input class='input-cell' name='14' type='text' maxlength='1'>
-    <input class='input-cell' name='15' type='text' maxlength='1'>
-    <input class='input-cell' name='16' type='text' maxlength='1'>
-    <input class='input-cell' name='17' type='text' maxlength='1'>
-  </div>
-  <div id="row-3">
-    <input class='input-cell' name='18' type='text' maxlength='1'>
-    <input class='input-cell' name='19' type='text' maxlength='1'>
-    <input class='input-cell' name='20' type='text' maxlength='1'>
-    <input class='input-cell' name='21' type='text' maxlength='1'>
-    <input class='input-cell' name='22' type='text' maxlength='1'>
-    <input class='input-cell' name='23' type='text' maxlength='1'>
-    <input class='input-cell' name='24' type='text' maxlength='1'>
-    <input class='input-cell' name='25' type='text' maxlength='1'>
-    <input class='input-cell' name='26' type='text' maxlength='1'>
-  </div>
-  <div id="row-4">
-    <input class='input-cell' name='27' type='text' maxlength='1'>
-    <input class='input-cell' name='28' type='text' maxlength='1'>
-    <input class='input-cell' name='29' type='text' maxlength='1'>
-    <input class='input-cell' name='30' type='text' maxlength='1'>
-    <input class='input-cell' name='31' type='text' maxlength='1'>
-    <input class='input-cell' name='32' type='text' maxlength='1'>
-    <input class='input-cell' name='33' type='text' maxlength='1'>
-    <input class='input-cell' name='34' type='text' maxlength='1'>
-    <input class='input-cell' name='35' type='text' maxlength='1'>
-  </div>
-  <div id="row-5">
-    <input class='input-cell' name='36' type='text' maxlength='1'>
-    <input class='input-cell' name='37' type='text' maxlength='1'>
-    <input class='input-cell' name='38' type='text' maxlength='1'>
-    <input class='input-cell' name='39' type='text' maxlength='1'>
-    <input class='input-cell' name='40' type='text' maxlength='1'>
-    <input class='input-cell' name='41' type='text' maxlength='1'>
-    <input class='input-cell' name='42' type='text' maxlength='1'>
-    <input class='input-cell' name='43' type='text' maxlength='1'>
-    <input class='input-cell' name='44' type='text' maxlength='1'>
-  </div>
-  <div id="row-6">
-    <input class='input-cell' name='45' type='text' maxlength='1'>
-    <input class='input-cell' name='46' type='text' maxlength='1'>
-    <input class='input-cell' name='47' type='text' maxlength='1'>
-    <input class='input-cell' name='48' type='text' maxlength='1'>
-    <input class='input-cell' name='49' type='text' maxlength='1'>
-    <input class='input-cell' name='50' type='text' maxlength='1'>
-    <input class='input-cell' name='51' type='text' maxlength='1'>
-    <input class='input-cell' name='52' type='text' maxlength='1'>
-    <input class='input-cell' name='53' type='text' maxlength='1'>
-  </div>
-  <div id="row-7">
-    <input class='input-cell' name='54' type='text' maxlength='1'>
-    <input class='input-cell' name='55' type='text' maxlength='1'>
-    <input class='input-cell' name='56' type='text' maxlength='1'>
-    <input class='input-cell' name='57' type='text' maxlength='1'>
-    <input class='input-cell' name='58' type='text' maxlength='1'>
-    <input class='input-cell' name='59' type='text' maxlength='1'>
-    <input class='input-cell' name='60' type='text' maxlength='1'>
-    <input class='input-cell' name='61' type='text' maxlength='1'>
-    <input class='input-cell' name='62' type='text' maxlength='1'>
-  </div>
-  <div id="row-8">
-    <input class='input-cell' name='63' type='text' maxlength='1'>
-    <input class='input-cell' name='64' type='text' maxlength='1'>
-    <input class='input-cell' name='65' type='text' maxlength='1'>
-    <input class='input-cell' name='66' type='text' maxlength='1'>
-    <input class='input-cell' name='67' type='text' maxlength='1'>
-    <input class='input-cell' name='68' type='text' maxlength='1'>
-    <input class='input-cell' name='69' type='text' maxlength='1'>
-    <input class='input-cell' name='70' type='text' maxlength='1'>
-    <input class='input-cell' name='71' type='text' maxlength='1'>
-  </div>
-  <div id="row-9">
-    <input class='input-cell' name='72' type='text' maxlength='1'>
-    <input class='input-cell' name='73' type='text' maxlength='1'>
-    <input class='input-cell' name='74' type='text' maxlength='1'>
-    <input class='input-cell' name='75' type='text' maxlength='1'>
-    <input class='input-cell' name='76' type='text' maxlength='1'>
-    <input class='input-cell' name='77' type='text' maxlength='1'>
-    <input class='input-cell' name='78' type='text' maxlength='1'>
-    <input class='input-cell' name='79' type='text' maxlength='1'>
-    <input class='input-cell' name='80' type='text' maxlength='1'>
-  </div>
+  <% end %>
   <input type='submit' value='Submit!'>
 </form>

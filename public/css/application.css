@@ -72,6 +72,10 @@ code {
     text-align: center;
 }
 
+.given_cell {
+    font-style: bold;
+}
+
 .solved_cell {
     color: transparent;
 }
