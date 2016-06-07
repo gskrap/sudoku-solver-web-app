@@ -1,16 +1,17 @@
 class Board
-  attr_accessor :squares, :original_squares
+  attr_accessor :squares, :indexes_of_givens
 
   def initialize(args={})
     @squares = []
+    @indexes_of_givens = []
     args.each do |idx, value|
       if value.to_i != 0
         @squares << [value.to_i]
+        @indexes_of_givens << idx.to_i
       else
         @squares << [1,2,3,4,5,6,7,8,9]
       end
     end
-    @original_squares = @squares
   end
 
   def solved?()
@@ -35,7 +36,7 @@ class Board
       self.squares = eliminate_row()
       self.squares = box_unbox()
     end
-    self.squares
+    self
   end
 
   def eliminate_row()

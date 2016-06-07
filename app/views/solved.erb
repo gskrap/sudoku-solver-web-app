@@ -1,47 +1,17 @@
 <table>
+  <% i = 0 %>
+  <% 9.times do %>
   <tr>
     <% 9.times do %>
-    <td class='solved_cell'><%= @board.shift[0] %></td>
+    <td
+      <% if @board.indexes_of_givens.include?(i) %>
+      class='given_cell'
+      <% else %>
+      class='solved_cell'
+      <% end %>
+      ><%= @board.squares.shift[0] %></td>
+    <% i += 1 %>
     <% end %>
   </tr>
-  <tr>
-    <% 9.times do %>
-    <td class='solved_cell'><%= @board.shift[0] %></td>
-    <% end %>
-  </tr>
-  <tr>
-    <% 9.times do %>
-    <td class='solved_cell'><%= @board.shift[0] %></td>
-    <% end %>
-  </tr>
-  <tr>
-    <% 9.times do %>
-    <td class='solved_cell'><%= @board.shift[0] %></td>
-    <% end %>
-  </tr>
-  <tr>
-    <% 9.times do %>
-    <td class='solved_cell'><%= @board.shift[0] %></td>
-    <% end %>
-  </tr>
-  <tr>
-    <% 9.times do %>
-    <td class='solved_cell'><%= @board.shift[0] %></td>
-    <% end %>
-  </tr>
-  <tr>
-    <% 9.times do %>
-    <td class='solved_cell'><%= @board.shift[0] %></td>
-    <% end %>
-  </tr>
-  <tr>
-    <% 9.times do %>
-    <td class='solved_cell'><%= @board.shift[0] %></td>
-    <% end %>
-  </tr>
-  <tr>
-    <% 9.times do %>
-    <td class='solved_cell'><%= @board.shift[0] %></td>
-    <% end %>
-  </tr>
+  <% end %>
 </table>
