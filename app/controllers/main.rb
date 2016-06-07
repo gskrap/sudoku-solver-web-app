@@ -5,6 +5,6 @@ get '/' do
 end
 
 post '/' do
-  @board = Board.new(params)
-  erb :solve
+  @board = Board.new(params).solve
+  erb :solved
 end
