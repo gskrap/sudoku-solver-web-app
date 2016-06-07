@@ -61,7 +61,4 @@ class Board
     return possible_values
   end
 
-  def solved?
-    self.solve
-  end
 end
