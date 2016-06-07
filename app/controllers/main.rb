@@ -6,5 +6,9 @@ end
 
 post '/' do
   @board = Board.new(params).solve
-  erb :solved
+  if @board.solved?
+    erb :solved
+  else
+    erb :no_solution
+  end
 end

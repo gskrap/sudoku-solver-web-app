@@ -66,8 +66,16 @@ code {
     overflow: auto;
 }
 
-.input-cell, .solved_cell {
+.input-cell, .solved_cell, .given_cell {
     width: 32px;
     height: 32px;
     text-align: center;
+}
+
+.given_cell {
+    font-style: bold;
+}
+
+.solved_cell {
+    color: transparent;
 }

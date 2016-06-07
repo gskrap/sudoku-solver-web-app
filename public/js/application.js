@@ -1,7 +1,17 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  $('.solved_cell').on('click', function(){
+    this.style.color = 'gray';
+  });
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $('#solution-btn').on('click', function(){
+    var solved_cells = document.getElementsByClassName('solved_cell');
+    var i;
+    for (i = 0; i < solved_cells.length; i++) {
+    solved_cells[i].style.color = 'gray';
+    }
+  });
+
+  $('#home-btn').click(function() {
+  window.location='/';
+  });
 });
