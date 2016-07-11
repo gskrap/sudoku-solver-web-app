@@ -1,9 +1,10 @@
 class Board
-  attr_accessor :squares, :indexes_of_givens
+  attr_accessor :squares, :indexes_of_givens, :failure_count
 
   def initialize(args={})
     @squares = []
     @indexes_of_givens = []
+    @failure_count = 0
     args.each do |idx, value|
       @squares << value.to_i
       if value.to_i != 0
@@ -22,7 +23,9 @@ class Board
           return true
         end
       end
+      self.failure_count += 1
       self.squares[i] = 0
+      break if self.failure_count == 100000
       return false
     end
     return true
