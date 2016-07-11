@@ -1,13 +1,17 @@
 <h3>Enter Your Sudoku Puzzle:</h3>
 <form id='puzzle-input' action='/' method='post'>
-  <% i = 0 %>
-  <% 9.times do %>
-  <div>
+  <table class='center'>
+    <% i = 0 %>
     <% 9.times do %>
-    <input class='input-cell' name='<%= i %>' type='text' maxlength='1'>
-    <% i += 1 %>
+    <tr>
+      <% 9.times do %>
+      <td>
+      <input class='input-cell' name='<%= i %>' type='text' maxlength='1'>
+      <% i += 1 %>
+      </td>
+      <% end %>
+    </tr>
     <% end %>
-  </div>
-  <% end %>
-  <input id='submit-btn' type='submit' value='Submit!'>
+  </table>
+    <input id='submit-btn' type='submit' value='Submit!'>
 </form>

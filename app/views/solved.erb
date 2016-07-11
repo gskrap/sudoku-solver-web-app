@@ -2,16 +2,19 @@
 
 <table class='center'>
   <% i = 0 %>
-  <% 9.times do %>
+  <% 9.times do |z| %>
   <tr>
-    <% 9.times do %>
+    <% 9.times do |x| %>
+    <% cell_class = "" %>
     <td
       <% if @board.indexes_of_givens.include?(i) %>
-      class='given_cell'
+        <% cell_class = "given_cell " %>
       <% else %>
-      class='solved_cell'
+        <% cell_class = "solved_cell " %>
       <% end %>
-      ><%= @board.squares.shift %></td>
+      class = <%= cell_class %>
+                                >
+      <%= @board.squares.shift %></td>
     <% i += 1 %>
     <% end %>
   </tr>
@@ -19,5 +22,7 @@
 </table>
 
 <button id='show-solution-btn'>Show Solution</button>
-<button id='hide-solution-btn'>Hide Solution</button>
 <button id='home-btn'>Home</button>
+<button id='hide-solution-btn'>Hide Solution</button>
+
+<img id="guy-img" src="http://i.imgur.com/QWwUxN7.jpg"></img>
