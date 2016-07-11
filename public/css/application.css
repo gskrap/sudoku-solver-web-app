@@ -1,7 +1,7 @@
 /* CSS declarations go here */
 body {font-family: helvetica; font-size: 160%; line-height: 160%; }
 h1, h2, h3, h4, h5, h6 {font-family: helvetica; line-height:100%; margin-top: 0.5em; margin-bottom: 0.5em; color: #36AECC; font-weight: 400;}
-h1 {font-size: 1.8em;}
+h1 {font-size: 2.8em; font-family: "Lobster";}
 h2 {font-size: 1.6em;}
 h3 {font-size: 1.4em;}
 h4 {font-size: 1.3em;}
@@ -121,6 +121,11 @@ button, #submit-btn {
 
 #home-btn {
     background-color: #36AECC;
+}
+
+#byline {
+    margin-top: -42px;
+    margin-bottom: 60px;
 }
 
 @media only screen and (max-device-width: 480px) {
