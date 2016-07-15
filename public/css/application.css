@@ -66,6 +66,10 @@ code {
     overflow: auto;
 }
 
+td {
+    background: white;
+}
+
 .input-cell {
     width: 38px;
     height: 32px;
@@ -127,7 +131,16 @@ button, #submit-btn {
     margin-bottom: 60px;
 }
 
+html {
+    background: url(http://i.imgur.com/i5O5Akw.jpg);
+    background-size: cover;
+}
+
 @media only screen and (max-device-width: 480px) {
+    html {
+        background: white;
+    }
+
     #content, .center {
         width: 90%;
         height: 825px;
