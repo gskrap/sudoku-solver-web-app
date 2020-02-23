@@ -6,7 +6,7 @@ end
 
 post '/' do
   @board = Board.new(params)
-  if @board.solve && !@board.squares.include?(0)
+  if @board.solve
     erb :solved
   else
     erb :no_solution

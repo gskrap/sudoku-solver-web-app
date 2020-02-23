@@ -1,23 +1,24 @@
-<h3> Click a Blank Square to Reveal</h3>
+<h3> Click a Square to Reveal</h3>
 
 <table class='center'>
   <% i = 0 %>
-  <% 9.times do |z| %>
-  <tr>
-    <% 9.times do |x| %>
-    <% cell_class = "" %>
-    <td
-      <% if @board.indexes_of_givens.include?(i) %>
-        <% cell_class = "given_cell " %>
-      <% else %>
-        <% cell_class = "solved_cell " %>
+  <% squares = @board.squares.flatten %>
+  <% 9.times do |x| %>
+    <tr>
+      <% 9.times do |y| %>
+        <td
+          <% if @board.indexes_of_givens.include?(i) %>
+            <% cell_class = "given_cell " %>
+          <% else %>
+            <% cell_class = "solved_cell " %>
+          <% end %>
+          class = <%= cell_class %>
+        >
+          <%= squares.shift %>
+        </td>
+        <% i += 1 %>
       <% end %>
-      class = <%= cell_class %>
-                                >
-      <%= @board.squares.shift %></td>
-    <% i += 1 %>
-    <% end %>
-  </tr>
+    </tr>
   <% end %>
 </table>
 
